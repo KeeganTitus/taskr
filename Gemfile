@@ -59,3 +59,5 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 
 gem 'simple_form'
+
+gem 'devise'
