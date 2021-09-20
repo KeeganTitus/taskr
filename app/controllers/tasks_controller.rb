@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+	def index
+		@tasks = Task.all
+	end
 
 	def new
 		@task = Task.new
@@ -16,6 +19,7 @@ class TasksController < ApplicationController
 
 		else
 			render 'new'
+			#redirect_to new_task_path(@task)
 		end
 	end
 
