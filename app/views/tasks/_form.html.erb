@@ -1,0 +1,21 @@
+<!-- If a filename starts with a undescore that indicates that the file is a partial file that is most likely used by multiple operations-->
+
+<% if @task.errors.any? %>
+<h4>Oops something went wrong</h4>
+	<ul>
+		<% @task.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= simple_form_for @task do |f| %>
+	<%= f.input :content %>
+
+	<%= f.button :submit %>
+
+<% end %>
+
+<p>
+	<%= link_to "All Tasks", tasks_path %>
+</p>
