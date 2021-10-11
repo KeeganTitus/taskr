@@ -1,22 +1,22 @@
 <!-- If a filename starts with a undescore that indicates that the file is a partial file that is most likely used by multiple controller actions-->
+<div class="d-grid gap-3 col-3 mx-auto">
+	<% if @task.errors.any? %>
+	<h4>Oops something went wrong</h4>
+		<ul>
+			<% @task.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
 
-<% if @task.errors.any? %>
-<h4>Oops something went wrong</h4>
-	<ul>
-		<% @task.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
+	<%= simple_form_for @task do |f| %>
+	 
+		<%= f.input :content, label: false, placeholder: 'Content', autofocus:true  %>
+
+		<%= f.button :submit, class: 'btn btn-primary btn-block' %>
+
 		<% end %>
-	</ul>
-<% end %>
-
-<%= simple_form_for @task do |f| %>
-	<%= f.input :content %>
-
-	<%= f.input :state %>
-
-	<%= f.button :submit %>
-
-<% end %>
+</div>
 
 <p>
 	<%= link_to "All Tasks", tasks_path %>
